@@ -1,0 +1,11 @@
+<h1>福岡おすすめラーメン店を投稿しよう！</h1>
+<%= form_with model: @post_image do |f| %>
+  <%= render "layouts/error_messages", model: f.object %>
+  <h4>ラーメン店の写真</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  <h4>店舗名</h4>
+  <%= f.text_field :shop_name %>
+  <h4>店舗の説明<h4>
+  <%= f.text_area :caption %>
+  <%= f.submit '投稿' %>
+<% end %>
