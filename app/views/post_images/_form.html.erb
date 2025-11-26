@@ -1,0 +1,10 @@
+<%= form_with model: post_image do |f| %>
+  <%= render "layouts/error_messages", model: f.object %>
+  <h4><%= f.label :image %></h4>
+  <%= f.file_field :image, accept: "image/*", class: "form-control" %>
+  <h4><%= f.label :shop_name %></h4>
+  <%= f.text_field :shop_name %>
+  <h4><%= f.label :caption %><h4>
+  <%= f.text_area :caption %>
+  <%= f.submit submit %>
+<% end %>

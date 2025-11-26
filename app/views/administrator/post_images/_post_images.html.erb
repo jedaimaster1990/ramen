@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>id</th>
+      <th width="30%">投稿画像</th>
+      <th>店舗名</th>
+      <th>投稿者</th>
+      <th>投稿日時</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% post_images.each do |post_image| %>
+      <tr>
+        <td><%= post_image.id %></td>
+        <td><%= image_tag post_image.get_image, size: "50x50" %></td>
+        <td><%= post_image.shop_name %></td>
+        <td><%= link_to post_image.user.name, administrator_user_path(post_image.user) %></td>
+        <td><%= l post_image.created_at  %></td>
+        <td>
+          <%= link_to "destroy", administrator_post_image_path(post_image),
+                                 method: :delete,
+                                 data: { confirm: "本当に削除しますか" },
+                                 class: "btn btn-outline-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  <tbody>
+</table>

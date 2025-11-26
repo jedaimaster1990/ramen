@@ -1,11 +1,36 @@
-<%= @post_images.each do |post_image| %>
-  <div>
-    <%= link_to post_image_path(post_image.id) do %>
-      <%= image_tag post_image.get_image %>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th width="30%">投稿画像</th>
+      <th>店舗名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @post_images.each do |post_image| %>
+      <tr>
+        <td rowspan="2"><%= image_tag post_image.get_image %></td>
+        <td><%= post_image.shop_name %></td>
+      </tr>
+      <tr>
+        <td><%= post_image.caption %></td>
+      </tr>
+      <tr>
+        <td><% link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></td>
+      </tr>
     <% end %>
-    <p>投稿ユーザー画像:<%= image_tag 'sample-author1.jpg' %></p>
-    <p>店舗名:<%= post_image.shop_name %></p>
-    <p>詳細:<%= post_image.caption %></p>
-    <p>ユーザーネーム:<%= post_image.user.name %></p>
-  </div>
-<% end %>
+  <tbody>
+</table>
+<div class="row">
+  <% @post_images.each do |post_image| %>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="card my-3">
+        <%= image_tag post_image.get_image, class: "bd-placeholder-img card-img-top w-100", style: "height:200px;object-fit:cover" %>
+        <div class="card-body" style="height:330px;">
+          <h5 class="card-title"><%= post_image.shop_name %></h5>
+          <p class="card-text"><%= post_image.caption %></p>
+          <%= link_to "more", post_image, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

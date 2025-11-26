@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      post_image:
+        shop_name: 店舗名
+        image: 画像
+        caption: 店舗詳細

@@ -1,4 +1,6 @@
 class PostImagesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @post_image = PostImage.new
@@ -18,18 +20,32 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.page(params[:page])
+    @post_images = PostImage.all
   end
 
   def show
     @post_image = PostImage.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def destroy
-    post_image = PostImage.find(params[:id])
-    post_image.destroy
-    redirect_to '/post_images'
+    @post_image.destroy
+    redirect_to posts_path
   end
+
+  def edit
+  end
+
+  def update
+    if @post_image.update(post_image_params)
+      flash[:notice] = "編集しました"
+      redirect_to post_image_path(@post_image.id)
+    else
+      flash.now[:alert] = "編集に失敗しました"
+      render :edit
+    end
+  end
+
   # 投稿データのストロングパラメータ
   private
 
@@ -37,4 +53,8 @@ class PostImagesController < ApplicationController
     params.require(:post_image).permit(:shop_name, :image, :caption)
   end
 
+  def correct_user
+    @post_image = current_user.post_images.find_by(id: params[:id])
+    redirect_to root_path unless @post_image
+  end
 end
