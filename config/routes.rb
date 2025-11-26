@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "about" => "homes#about"
   resources :post_images, only: [:new, :create, :index, :show, :destroy, :update, :edit ] do
     resources :post_comments, only: [:create]
+    resource :favorites, only: [:create, :destroy]
   end
   #admin用のルートを追加
   devise_for :admins, path: 'administrator', controllers: {

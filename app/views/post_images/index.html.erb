@@ -29,6 +29,7 @@
           <h5 class="card-title"><%= post_image.shop_name %></h5>
           <p class="card-text"><%= post_image.caption %></p>
           <%= link_to "more", post_image, class: "btn btn-primary" %>
+          <%= render "favorites/favorite_button", post_image: post_image if user_signed_in? %>
         </div>
       </div>
     </div>

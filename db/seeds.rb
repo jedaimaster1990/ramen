@@ -19,13 +19,6 @@ Admin.create!(
   )
 end
 
-(1..10).each do |n|
-  PostComment.create!(
-    name: Faker::Name.name,
-    post_comment: Faker::Lorem.word
-  )
-end
-
 (1..6).each do |n|
   rand(1..3).times do
     post_image = PostImage.create!(
@@ -33,8 +26,16 @@ end
       shop_name: Faker::Lorem.word,
       caption: Faker::Lorem.sentence(word_count: rand(5..20))
     )
-    file_path = Rails.root.join("db/fixtures/images/ramen_image_#{rand(1..5)}.jpg")
+    file_path = Rails.root.join("db/fixtures/images/ramen_image_#{rand(1..7)}.jpg")
     post_image.image.attach(io: File.open(file_path), filename: "ramen_image.jpg", content_type: 'image/jpeg')
     sleep 0.5
   end
+end
+
+(1..10).each do |n|
+  PostComment.create!(
+    user_id: rand(1..10),
+    post_image_id: rand(1..6),
+    comment: Faker::Lorem.word
+  )
 end
