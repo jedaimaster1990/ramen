@@ -1,0 +1,15 @@
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @user.name %>さんのプロフィール</h3>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+
+<h2>投稿した記事一覧</h2>
+<ul>
+  <% @post_images.each do |post_image| %>
+    <li>
+      <%= link_to post_image.title, post_image_path(post_image) %> - 投稿日: <%= post_image.created_at.to_date %>
+    </li>
+  <% end %>
+</ul>

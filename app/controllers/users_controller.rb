@@ -8,6 +8,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    #URLのparams[:id]からユーザーを所得
+    @user = User.find(params[:id])
+    #そのユーザーが投稿した記事一覧を所得
+    @post_images = @user.post_images.order(created_at: :desc)
+  end
+
+  def edit
+  end
+
   private
 
   def user_params
