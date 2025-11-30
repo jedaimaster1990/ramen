@@ -1,10 +1,12 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'top', media: 'all' %>
+<% end %>
+
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <!-- ramen.cssファイルの読み込み -->
-    <link rel="stylesheet" herf="ramen.css" />
-    <title>福岡のおすすめのラーメン店</title> <!-- サイトのタイトル名 -->
+    <title>福岡のおすすめのラーメン店</title> 
   </head>
 
   <body>
@@ -17,18 +19,16 @@
     </header>
 
     <div class="main-visual">
-      <p class="main-visual-text">
-        このサイトは福岡のラーメン店選びに迷っている方に
-      </p>
-      <p class="main-visual-text">
-        地元民や観光客のおすすめの店を投稿して情報を共有するサイトです。
-      </P>
-      <p class="main-visual-text">
-        地元民の他にも初めて福岡に来た方でもおすすめのサイトなので
-      </P>
-      <p class="main-visual-text">
-        楽しくサイトをご利用ください！
-      </p>
-      <div class="backgroud-image-top"></div>
+      <div class="main-visual-content">
+        <p class="main-visual-text">
+        このサイトは福岡のラーメン店選びに迷っている方に<br />
+         地元民や観光客のおすすめの店を投稿して情報を共有するサイトです。
+         地元民の他にも初めて福岡に来た方でもおすすめのサイトなので
+         楽しくご利用ください！
+        </p>
+      </div>
+    </div>
+
+    <footer></footer>      
   </body>
 </html>
