@@ -2,7 +2,7 @@
   <div class="col-md-6 offset-md-3">
     <div class="card mt-4">
       <div class="card-body">
-        <h2 class="text-center my-2">Sign up</h2>
+        <h2 class="text-center my-2">新規登録</h2>
 
         <%= form_with model: @user, url: user_registration_path do |f| %>
           <%= render "layouts/error_messages", model: f.object %>
@@ -20,7 +20,7 @@
           <div class="mb-2">
             <%= f.label :password %>
             <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <em>(<%= @minimum_password_length %>桁 英数文字)</em>
             <% end %>
             <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
           </div>

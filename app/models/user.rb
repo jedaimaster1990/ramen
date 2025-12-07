@@ -31,4 +31,16 @@ class User < ApplicationRecord
   def favorite?(post_image)
     self.favorite_posts.include?(post_image)
   end
+
+  def follow(followed)
+    self.followings.find_or_create_by(followed: followed)
+  end
+
+  def unfollow(followed)
+    self.followings.find_by(followed: followed)&.destroy
+  end
+
+  def following?(followed)
+    self.following_users.include?(followed)
+  end
 end

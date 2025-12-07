@@ -1,5 +1,5 @@
 <% if current_user.favorite?(post_image) %>
-  <%= link_to "unfavorite", post_image_favorites_path(post_image), method: :destroy %>
+  <%= link_to "お気に入りから外す", post_image_favorites_path(post_image), method: :delete %>
 <% else %>
-  <%= link_to "favorite", post_image_favorites_path(post_image), method: :post %>
+  <%= link_to "お気に入りにする", post_image_favorites_path(post_image), method: :post %>
 <% end %>

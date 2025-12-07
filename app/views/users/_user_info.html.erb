@@ -1,0 +1,6 @@
+<h2><%= user.name %>さんのプロフィール</h2>
+<%= render "relationships/relationship_button", followed: user %>
+<%= link_to "followings", followings_user_path(user) %>
+<%= link_to "follower", followers_user_path(user) %>
+<%= link_to "favorites", favorites_user_path(user) %>
+<%= link_to "post_images", user %>

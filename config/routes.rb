@@ -3,10 +3,17 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get "about" => "homes#about"
   get 'top', to: 'homes#top', as: 'top'
+  resources :users, only: [:show] do
+    resource :relationships, only: [:create, :destroy]
+    member do
+      get :favorites
+      get :followings
+      get :followers
+    end
+  end
   resources :post_images, only: [:new, :create, :index, :show, :destroy, :update, :edit ] do
     resources :post_comments, only: [:create]
     resource :favorites, only: [:create, :destroy]
-    resources :users, only: [:show]
   end
   #admin用のルートを追加
   devise_for :admins, path: 'administrator', controllers: {

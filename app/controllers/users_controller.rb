@@ -9,10 +9,23 @@ class UsersController < ApplicationController
   end
 
   def show
-    #URLのparams[:id]からユーザーを所得
     @user = User.find(params[:id])
-    #そのユーザーが投稿した記事一覧を所得
-    @post_images = @user.post_images.order(created_at: :desc)
+    @post_images = @user.post_images
+  end
+
+  def favorites
+    @user = User.find(params[:id])
+    @post_images = @user.favorite_posts
+  end
+
+  def followings
+    @user = User.find(params[:id])
+    @following_users = @user.following_users
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @follower_users = @user.follower_users
   end
 
   def edit

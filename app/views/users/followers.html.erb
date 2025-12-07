@@ -1,10 +1,9 @@
-<h1></h1>
 <div class="row">
   <div class="col-md-3">
     <%= render "users/user_info", user: @user %>
   </div>
   <div class="col-md-9">
-    <h2>投稿記事一覧</h2>
-    <%= render "post_images/post_images", post_images: @post_images, lg: 6 %>
+    <h2>フォロワー一覧</h2>
+    <%= render "users/users", users: @follower_users %>
   </div>
 </div>

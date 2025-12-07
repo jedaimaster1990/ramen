@@ -1,24 +1,10 @@
 <div class="main-container">
   <body>
     <div class="title">
-      <h1 style="color: black;">皆様が選んだおすすめラーメン店一覧</h1>
+      <h1 style="color: black;">福岡で選ばれたおすすめのラーメン店一覧</h1>
     </div>
   </body>
 </div>
 
-<div class="row">
-  <% @post_images.each do |post_image| %>
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="card my-3">
-        <%= image_tag post_image.get_image, class: "bd-placeholder-img card-img-top w-100", style: "height:200px;object-fit:cover" %>
-        <div class="card-body" style="height:330px;">
-          <h5 class="card-title"><%= post_image.shop_name %></h5>
-          <p class="card-text"><%= post_image.caption %></p>
-          <% link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
-          <%= link_to "more", post_image, class: "btn btn-primary" %>
-          <%= render "favorites/favorite_button", post_image: post_image if user_signed_in? %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render "post_images/post_images", post_images: @post_images, lg: 4 %>
+
