@@ -5,11 +5,29 @@
   color: #6c6b6b;
 }
 
+/* ヘッダー */
 .head{
   width: 90%;
   padding: 15px 0;
   margin: 0 auto;
   text-align: center;
+}
+
+.header_menu li {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header_menu li a:hover {
+  color:#80BA4A;
+  transition: .3s;
 }
 
 .container {
@@ -58,8 +76,35 @@
   color: aliceblue;
 }
 
-
-
+/* main */
+#concept {
+  margin-bottom: 20px;
+}
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 50px;
+  margin-top: 70px;
+  text-align: left;
+}
+.main-title {
+  text-align: left;
+  margin-bottom: 60px;
+}
+.main-text {
+  text-align: left;
+  line-height: 1.5;
+}
+.column-1 {
+  width: 48%;
+} 
+.concept-img {
+  background-image: url(hakatamen.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  height: 330px;
+}
 
 
 

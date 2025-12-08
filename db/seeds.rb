@@ -11,8 +11,7 @@ Admin.create!(
   password: "password"
 )
 
-
-(1..10).each do |n|
+users = (1..10).map do |n|
   User.create!(
     name: Faker::Name.name,
     email: "user#{n}@test.com",
@@ -20,10 +19,9 @@ Admin.create!(
   )
 end
 
-(1..6).each do |n|
+users[0..5].each do |user|
   rand(1..3).times do
-    post_image = PostImage.create!(
-      user_id: n,
+    post_image = user.post_images.create!(
       shop_name: Faker::Lorem.word,
       caption: Faker::Lorem.sentence(word_count: rand(5..20))
     )
