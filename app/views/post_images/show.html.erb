@@ -1,55 +1,84 @@
-<h1>店舗詳細</h1>
+<h1 class="container">
+  <p class="heading-text">
+    店舗の詳細ページです
+  </p>
+</h1>
+
 <div class="row">
   <div class="col-md-6">
     <%= image_tag @post_image.get_image, class: "w-100" %>
   </div>
   <div class="col-md-6">
     <table class="table">
-    <tbody>
-      <tr>
-        <th>店舗名</th>
-        <td><%= @post_image.shop_name %></td>
-      </tr>
-      <tr>
-        <th>店舗詳細</th>
-        <td><%= @post_image.caption %></td>
-      </tr>
-      <tr>
-        <th>投稿者氏名</th>
-        <td><%= @post_image.user.name %></td>
-      </tr>
-      <tr>
-        <th>投稿日</th>
-        <td><%= l @post_image.created_at, format: :date %></td>
-      </tr>
-    <tbody>
-  </table>
-
-    <div>
-      <p>コメント件数:<%= @post_image.post_comments.count %></p>
-      <% @post_image.post_comments.each do |post_comment| %>
-        <%= post_comment.user.name %>
-        <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-        <% if post_comment.user == current_user %>
-          <%= link_to "コメントを削除する", post_image_post_comments_url(post_comment.post_image, post_comment), method: :delate %>
-        <% end %>
+      <tbody>
+        <tr>
+          <th>店舗名</th>
+          <td><%= @post_image.shop_name %></td>
+        </tr>
+        <tr>
+          <th>店舗詳細</th>
+          <td><%= @post_image.caption %></td>
+        </tr>
+        <tr>
+          <th>投稿者氏名</th>
+          <td><%= @post_image.user.name %></td>
+        </tr>
+        <tr>
+          <th>投稿日</th>
+          <td><%= l @post_image.created_at, format: :date %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @post_image.address %></td>
+        </tr>
+      <tbody>
+    </table>
+    <!-- ボタン -->
+    <div class="footer">
+      <% if @post_image.user == current_user %>
+      <%= link_to "削除する", post_image_path(@post_image), method: :delete %>
+      
+      <%= link_to "投稿一覧へ戻る", post_images_path %>
+      
+      <%= link_to("編集する", "/post_images/#{@post_image.id}/edit") %>
       <% end %>
     </div>
-    <div>
+    <!-- コメント機能 -->
+    <div class="comment">
       <%= form_with model: [@post_image, @post_comment] do |f| %>
         <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
         <%= f.submit "送信する" %>
       <% end %>
     </div>
-      <% if @post_image.user == current_user %>
-       <%= link_to "削除する", post_image_path(@post_image), method: :delete %>
-       <p></p>
-       <%= link_to "投稿一覧へ戻る", post_images_path %>
-       <p></p>
-       <%= link_to("編集する", "/post_images/#{@post_image.id}/edit") %>
-      <% end %>
-    </div>
+  </div>
 </div>
+
+
+<!-- コメント件数 -->
+<div class="continer">
+  <div class="row"> 
+    <div class="col-md-6">
+      <p class="coment">コメント件数:<%= @post_image.post_comments.count %></p>
+    </div>
+    <div class ="col-md-6">
+      <div class="d-flex flex-column">
+        <% @post_image.post_comments.each do |post_comment| %>
+          <%= post_comment.user.name %>
+          <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>   
+          <% if post_comment.user == current_user %>
+            <%= link_to "コメントを削除する", post_image_post_comments_url(post_comment.post_image, post_comment), method: :delate %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    
+
+
 
 
   

@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="post_images.css">
+</head>
+
 <div class="row">
   <% post_images.each do |post_image| %>
     <div class="col-sm-12 col-md-6 col-lg-<%= lg %>">
@@ -5,10 +9,21 @@
         <%= image_tag post_image.get_image, class: "bd-placeholder-img card-img-top w-100", style: "height:200px;object-fit:cover" %>
         <div class="card-body" style="height:330px;">
           <h5 class="card-title"><%= post_image.shop_name %></h5>
+          <p class="card-title">
+            <span><i class="fa-solid fa-location-dot"></i> <%= post_image.address %></span>
+          </p>
           <p class="card-text"><%= post_image.caption %></p>
           <% link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
-          <%= link_to "more", post_image, class: "btn btn-primary" %>
-          <%= render "favorites/favorite_button", post_image: post_image if user_signed_in? %>
+
+          <div class="button">
+            <%= link_to "詳細はこちらから", post_image, class: "btn btn-primary" %>
+          </div>
+          <div class="flex">
+            <%= render "favorites/favorite_button", post_image: post_image if user_signed_in? %>
+          </div>
+          <div class="map">
+            <%= link_to "マップはこちら", map_path, class: "map-link" %>
+          </div>
         </div>
       </div>
     </div>

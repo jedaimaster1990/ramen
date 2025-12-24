@@ -1,67 +1,134 @@
-<% content_for :css do %>
-  <%= stylesheet_link_tag 'top', media: 'all' %>
-<% end %>
+<header>
+  <h1 class="container">
+    <p class="heading-text ">
+      Ramen in fukuoka
+    </p>
+  </h1>
+  <div style="display: flex; justify-content: flex-end;">
+    <nav>
+      <ul class="header_menu">
+        <li><a href="#concept">Conceot</a></li>
+        <li><a href="#ramen">Ramen</a></li>
+        <li><a href="#address">Address</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
+<div class="main-visual">
+  <div class="main-visual-content">
+    <p class="main-visual-text">Find your recommended ramen</p>
+    <p class="main-visual-text"><h1 style="color: white;">福岡のおすすめのラーメン店</h1></p>
+  </div>
+</div>
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <title>福岡のおすすめのラーメン店</title> 
-  </head>
-
-  <body>
-    <header>
-      <h1 class="container">
-        <p class="heading-text">
-          Ramen in fukuoka
+<main>
+  <section id="concept" class="continer2">
+    <h2 class="header_menu-title">concept</h2>
+    <h3 class="main-title">味わったことのない方に、福岡のラーメンを伝えるをテーマにした交流のかたち</h3>
+    <div class="flex">
+      <div class="column-1">
+        <p class="main-text">
+          福岡県にはラーメン店が962店舗ありその中でも有名なのが博多区発祥の博多ラーメンで
+          長時間煮込んだ濃厚で白濁した豚骨スープと極細のストレート麺が特徴です。<br>
+          <br>
+          麺の硬さを好みに合わせて選べ、食べ終わるタイミングで麺を1玉追加する「替え玉」という独特の
+          文化が根付いてます。<br>
+          <br>
+          ラーメンの楽しみ方としてはまずは何も加えず、豚骨スープと麺本来の味を楽しみます。次に紅生姜や
+          辛子高菜などトッピングを加えて味の変化を楽します。替え玉で麺の硬さを変えて、2杯目で違った
+          食感を楽しむのもおすすめです。<br>
+          <br>
+          また、博多ラーメン以外にも地方にしかない唯一の店もありますので福岡に来ましたら
+          是非たくさんのラーメンを味わってください。<br>
         </p>
-      </h1>
-      <div style="display: flex; justify-content: flex-end;">
-        <nav>
-          <ul class="header_menu">
-            <li><a href="#concept">Conceot</a></li>
-            <li><a href="#ramen">Ramen</a></li>
-            <li><a href="#map">Map</a></li>
-          </ul>
-        </nav>
       </div>
-    </header>
+      <div class="column-1 concept-img" >
+        <p style="color: white;">博多ラーメン街道</p>
+      </div>
+    </div>
+  </section>
 
-    <div class="main-visual">
-      <div class="main-visual-content">
-        <p class="main-visual-text">Find your recommended ramen</p>
-        <p class="main-visual-text"><h1 style="color: white;">福岡のおすすめのラーメン店</h1></p>
+  <section id="ramen" class="continer2">
+
+    <h2 class="header_menu-title2">hukuokaramens</h2>
+    <h3 class="main-title"></h3>
+    <div class="ramen_inner flex">
+      <div class="column-40 ramen-img">
+      </div>
+      <div class="column-55">
+        <div class="ramen-heading">らーめん二男坊 博多本店</div>
+        <p class="ramen-text">
+          女性にも愛されるラーメンを作りたい。
+          そこから、ラーメン二男坊の”らーめん作り”は始まりました。
+          男性も満足、女性にも愛される。まったく新しいのに、なじみ深い博多豚骨ラーメン。
+          そこを目指した新しい豚骨ラーメン。 ”新博多豚骨らーめん”作り。
+          これが、らーめん二男坊の”らーめん作り”の原点なのです。
+        </p>
       </div>
     </div>
 
-    <main>
-      <section id="concept" class="continer2">
-        <h2 class="title">concept</h2>
-        <h3 class="main-title">味わったことのない方に、福岡のラーメンを伝えるをテーマにした交流のかたち</h3>
-        <div class="flex">
-          <div class="column-1">
-            <p class="main-text">
-             福岡県にはラーメン店が962店舗ありその中でも有名なのが博多区発祥の博多ラーメンで
-             長時間煮込んだ濃厚で白濁した豚骨スープと極細のストレート麺が特徴です。<br>
-             <br>
-             麺の硬さを好みに合わせて選べ、食べ終わるタイミングで麺を1玉追加する「替え玉」という独特の
-             文化が根付いてます。<br>
-             <br>
-             ラーメンの楽しみ方としてはまずは何も加えず、豚骨スープと麺本来の味を楽しみます。次に紅生姜や
-             辛子高菜などトッピングを加えて味の変化を楽します。替え玉で麺の硬さを変えて、2杯目で違った
-             食感を楽しむのもおすすめです。<br>
-             <br>
-             また、博多ラーメン以外にも地方にしかない唯一の店もありますので福岡に来ましたら
-             是非たくさんのラーメンを味わってください。<br>
-            </p>
-          </div>
-          <div class="column-1 concept-img" >
-          </div>
-        </div>
-      </section>
-    </main>
+    <div class="ramen_inner flex">
+      <div class="column-40 ramen-img2">
+      </div>
+      <div class="column-55">
+        <div class="ramen-heading">博多純情ラーメン ShinShin</div>
+        <p class="ramen-text">
+          shinshinの、伝統的な博多ラーメンの製法に加えてスープの達人『吉田』の長年の経験による味と店主『中牟田』
+          の屋台叩き上げの味を組み合わせ、創意工夫して作り上げあげています。“食べやすく誰もが飲み干してしまう純情
+          なスープ”をコンセプトに「長浜ラーメン」とも「博多ラーメン」ともひと味違った『博多純情らーめん』の豚骨スープ
+          は作られているのです。
+        </p>
+      </div>
+    </div>
 
-    <footer>
-    </footer>      
-  </body>
-</html>
+    <div class="ramen_inner flex">
+      <div class="column-40 ramen-img3">
+      </div>
+      <div class="column-55">
+        <div class="ramen-heading">大砲ラーメン本店</div>
+        <p class="ramen-text">
+          大砲ラーメンは、1953年創業の福岡・久留米を代表する老舗豚骨ラーメン店で、
+          「呼び戻し」と呼ばれる豚骨を継ぎ足し炊き続けた濃厚なスープと、スープに馴染む
+          自家製麺が特徴です。創業当時の味を再現した「昔ラーメン」が看板メニューで、ミシュランの
+          ビブグルマンにも選ばれるなど、国内外で高い評価を受けている久留米ラーメンの代表格です。 
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="address" class="continer">
+    <h2 class="header_menu-title">address</h2>
+    <div class="shop-list">
+      <div class="shop-item">
+        <span class="shop-name">らーめん二男坊 博多本店</span>
+        <span class="shop-address">福岡県福岡市博多区博多駅前２丁目１６−４</span>
+      </div>
+      <div class="shop-item">
+        <span class="shop-name">博多純情ラーメン ShinShin</span>
+        <span class="shop-address">福岡県福岡市博多区博多駅中央街９−１</span>
+      </div>
+      <div class="shop-item">
+        <span class="shop-name">大砲ラーメン</span>
+        <span class="shop-address">福岡県久留米市通外町１１−８</span>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <footer>
+    <div class="flex">
+      <div class="colomn-a"></div>
+      <div class="colomn-b"></div>
+      <div class="colomn-c"></div>
+      <div class="colomn-d"></div>
+    </div>
+  </footer>
+</main>
+
+<footer-2>
+  <p class="footer-text">
+    Ramen in fukuoka
+  </p>
+</footer-2>

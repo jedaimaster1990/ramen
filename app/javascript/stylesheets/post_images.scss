@@ -1,0 +1,41 @@
+/* _post_images.html.erbファイルのCSS*/
+.button {
+  display: flex;
+}
+
+.flex {
+  display: flex;
+  margin-top: 10px;
+}
+
+.map {
+  text-align: left;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+  color: darkgoldenrod;
+}
+
+
+/* favorite_button.html.erbファイルのcss */
+.favorite-remove-link:hover {
+  color: brown;
+  text-decoration: underline;
+}
+.favorite-add-link:hover {
+  color: darkgoldenrod;
+  text-decoration: underline;
+}
+
+/* post_images/index.html.erbファイルのCSS*/
+#post_images__index {
+  .search {
+    margin-top: 100px;
+  }
+}
+
+
+
+
+

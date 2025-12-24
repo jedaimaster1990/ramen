@@ -20,7 +20,18 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.all
+    post_images = PostImage.all
+    if params[:keyword].present?
+      post_images = post_images.search(params[:keyword])
+    end
+    respond_to do |format|
+      format.html do
+        @post_images = post_images
+      end
+      format.json do
+        @post_images = post_images
+      end
+    end
   end
 
   def show
@@ -50,7 +61,7 @@ class PostImagesController < ApplicationController
   private
 
   def post_image_params
-    params.require(:post_image).permit(:shop_name, :image, :caption)
+    params.require(:post_image).permit(:shop_name, :image, :caption, :address)
   end
 
   def correct_user

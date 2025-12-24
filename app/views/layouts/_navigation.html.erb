@@ -9,7 +9,7 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "新規投稿", new_post_image_path, class: "nav-link" %>
+            <%= link_to "新規投稿", new_post_image_path, class: "nav-link",  data: {turbolinks: "false"} %>
           </li>
           <li class="nav-item">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -22,6 +22,9 @@
           </li>
           <li class="nav-item">
             <%= link_to "投稿一覧はこちら", post_images_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Google Map", map_path, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">

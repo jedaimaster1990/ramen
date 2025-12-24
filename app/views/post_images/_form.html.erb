@@ -1,10 +1,37 @@
-<%= form_with model: post_image do |f| %>
-  <%= render "layouts/error_messages", model: f.object %>
-  <h4><%= f.label :image %></h4>
-  <%= f.file_field :image, accept: "image/*", class: "form-control" %>
-  <h4><%= f.label :shop_name %></h4>
-  <%= f.text_field :shop_name %>
-  <h4><%= f.label :caption %><h4>
-  <%= f.text_area :caption %>
-  <%= f.submit submit %>
-<% end %>
+<head>
+  <link rel="stylesheet" type="text/css" href="form.css">
+</head>
+
+<body>
+  <div class="continer">
+    <%= form_with model: post_image do |f| %>
+      <%= render "layouts/error_messages", model: f.object %>
+      <div class="image-box">
+        <h4 class="image-button"><%= f.label :image, class: "center-label" %></h4>
+      </div>
+      <div class="center-label">
+        <%= f.file_field :image, accept: "image/*", class: "form-control" %>
+        <h4><%= f.label :shop_name %></h4>
+        <%= f.text_field :shop_name %>
+        <h4><%= f.label :caption %><h4>
+        <%= f.text_area :caption %>
+        <%= f.submit submit %>
+      </div>
+
+      <div class="input-group mb-3 mt-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-tenge-sign"></i></span>
+        </div>
+        <%= text_field_tag :zipcode, nil, class: "form-control", placeholder: "郵便番号(ハイフン無し)" %>
+      </div>
+      <div class="input-group mb-3 mt-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+        </div>
+        <%= f.text_field :address, class: "form-control", placeholder: "住所" %>
+      </div>
+    <% end %>
+  </div>
+</body>
+
+<%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>

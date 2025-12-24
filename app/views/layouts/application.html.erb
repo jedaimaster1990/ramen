@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
     <title>Ramen</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +9,11 @@
     <script src="https://kit.fontawesome.com/45f92007b5.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Bogle&display=swap" rel="stylesheet">
     
   </head>
 
@@ -21,5 +25,7 @@
       <%= render 'layouts/flash_messages' %>
       <%= yield %>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>
   </body>
 </html>

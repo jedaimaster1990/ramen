@@ -1,5 +1,9 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="post_images.css">
+</head>
+
 <% if current_user.favorite?(post_image) %>
-  <%= link_to "お気に入りから外す", post_image_favorites_path(post_image), method: :delete %>
+  <%= link_to "お気に入りから外す", post_image_favorites_path(post_image), method: :delete, class: "favorite-remove-link" %>
 <% else %>
-  <%= link_to "お気に入りにする", post_image_favorites_path(post_image), method: :post %>
+  <%= link_to "お気に入りにする", post_image_favorites_path(post_image), method: :post, class: "favorite-add-link" %>
 <% end %>

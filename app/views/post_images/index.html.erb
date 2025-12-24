@@ -1,9 +1,22 @@
-<div class="main-container">
-  <body>
-    <div class="title">
-      <h1 style="color: black;">福岡で選ばれたおすすめのラーメン店一覧</h1>
+<div class="post_images__index">
+  <div class="container">
+    <head>
+      <div class="row">
+        <h1 class= "col-md-10">
+          皆様がおすすめした福岡のラーメン店一覧
+        </h1>
+      </div>
+    </head>
+  </div>
+
+  <div class="col-md-7">
+    <div class="search">
+      <%= form_with url: post_images_path, method: :get, class: "form-inline my-2 my-lg-0" do |f| %>
+        <%= f.search_field :keyword, class: "form-control mr-sm-2", placeholder: "Search", "aria-label": "Search", value: params[:keyword] %>
+        <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
     </div>
-  </body>
+  </div>
 </div>
 
 <%= render "post_images/post_images", post_images: @post_images, lg: 4 %>

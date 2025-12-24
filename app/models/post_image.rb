@@ -6,6 +6,11 @@ class PostImage < ApplicationRecord
 
   validates :shop_name, presence: true
 
+  validates :address, presence: true
+
+  geocoded_by :address
+  after_validation :geocode
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -17,5 +22,10 @@ class PostImage < ApplicationRecord
   def favorited_by?(user)
     faovorites_exists?(user_id: user.id)
   end
-  
+
+  def self.search(keyword)
+    where('shop_name like ?', "%#{keyword}%").or(
+      where('caption like ?', "%#{keyword}%")
+    )
+  end
 end

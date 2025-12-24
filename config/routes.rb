@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resource :map, only: [:show]
   root to: 'homes#top'
-  get "about" => "homes#about"
   get 'top', to: 'homes#top', as: 'top'
   resources :users, only: [:show] do
     resource :relationships, only: [:create, :destroy]
