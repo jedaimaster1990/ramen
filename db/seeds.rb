@@ -19,15 +19,34 @@ users = (1..10).map do |n|
   )
 end
 
+address_sample = %w(
+  福岡県北九州市
+  福岡県朝倉市
+  福岡県福岡市
+  福岡県春日市
+  福岡県筑紫野市
+  福岡県久留米市
+  福岡県八女市
+  福岡県筑後市
+  福岡県田川市
+  福岡県大野城市
+  福岡県太宰府市
+  福岡県鳥栖市
+)
+
+address_index = 0
+
 users[0..5].each do |user|
-  rand(1..3).times do
+  2.times do
     post_image = user.post_images.create!(
       shop_name: Faker::Lorem.word,
-      caption: Faker::Lorem.sentence(word_count: rand(5..20))
+      caption: Faker::Lorem.sentence(word_count: rand(5..20)),
+      address: address_sample[address_index]
     )
     file_path = Rails.root.join("db/fixtures/images/ramen_image_#{rand(1..7)}.jpg")
     post_image.image.attach(io: File.open(file_path), filename: "ramen_image.jpg", content_type: 'image/jpeg')
     sleep 0.5
+    address_index += 1
   end
 end
 

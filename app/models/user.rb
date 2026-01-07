@@ -4,6 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def self.guset
+    find_or_create_by!(email: 'guset@guset.com') do |user|
+      user.password = password
+      user.name = "ゲストユーザー"
+    end
+  end
+
   validates :name, presence: true
 
   has_many :post_images, dependent: :destroy

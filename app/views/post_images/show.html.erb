@@ -43,6 +43,7 @@
       <%= link_to("編集する", "/post_images/#{@post_image.id}/edit") %>
       <% end %>
     </div>
+
     <!-- コメント機能 -->
     <div class="comment">
       <%= form_with model: [@post_image, @post_comment] do |f| %>
@@ -77,7 +78,7 @@
             <%= post_comment.created_at.strftime('%Y/%m/%d') %>
           </p>
           <% if post_comment.user == current_user %>
-            <%= link_to "コメントを削除する", post_image_post_comments_url(post_comment.post_image, post_comment), method: :delate %>
+            <%= link_to "コメントを削除する", post_image_post_comment_url(@post_image, post_comment), method: :delete %>
           <% end %>
         <% end %>
       </ul>
