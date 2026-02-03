@@ -20,6 +20,7 @@ class PostImagesController < ApplicationController
   end
 
   def index
+    @post_image = PostImage.order(created_at: :desc)
     post_images = PostImage.all
     if params[:keyword].present?
       post_images = post_images.search(params[:keyword])

@@ -13,7 +13,7 @@
             <span><i class="fa-solid fa-location-dot"></i> <%= post_image.address %></span>
           </p>
           <p class="card-text"><%= post_image.caption %></p>
-          <% link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
+          <%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
 
           <div class="button">
             <%= link_to "詳細はこちらから", post_image, class: "btn btn-primary" %>
