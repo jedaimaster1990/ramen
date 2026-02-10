@@ -53,6 +53,6 @@ bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
       File.join(rails_root, 'log', 'puma-error.log'),
       true
   )
-  # デーモン
+  # デーモンを追加
   daemonize
 end
