@@ -12,5 +12,4 @@ class FavoritesController < ApplicationController
     current_user.unfavorite(post_image)
     redirect_back(fallback_location: root_url)
   end
-
 end
