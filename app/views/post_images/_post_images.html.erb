@@ -7,12 +7,14 @@
     <div class="col-sm-12 col-md-6 col-lg-<%= lg %>">
       <div class="card my-3">
         <%= image_tag post_image.get_image, class: "bd-placeholder-img card-img-top w-100", style: "height:200px;object-fit:cover" %>
-        <div class="card-body" style="height:330px;">
+        <div class="card-body" style="min-height:420px;">
           <h5 class="card-title"><%= post_image.shop_name %></h5>
           <p class="card-title">
             <span><i class="fa-solid fa-location-dot"></i> <%= post_image.address %></span>
           </p>
-          <p class="card-text"><%= post_image.caption %></p>
+          <p class="card-text">
+            <%= truncate(post_image.caption, length: 80) %>
+          </p>
           <%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
 
           <div class="button">
@@ -29,3 +31,6 @@
     </div>
   <% end %>
 </div>
+
+
+

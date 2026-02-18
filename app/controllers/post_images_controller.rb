@@ -25,6 +25,7 @@ class PostImagesController < ApplicationController
     if params[:keyword].present?
       post_images = post_images.search(params[:keyword])
     end
+    post_images = post_images.page(params[:page]).per(6)
     respond_to do |format|
       format.html do
         @post_images = post_images
