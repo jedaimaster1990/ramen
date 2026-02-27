@@ -18,7 +18,7 @@
           <%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
 
           <div class="button">
-            <%= link_to "詳細はこちらから", post_image, class: "btn btn-primary" %>
+            <%= link_to "詳細はこちら", post_image, class: "btn btn-primary" %>
           </div>
           <div class="flex">
             <%= render "favorites/favorite_button", post_image: post_image if user_signed_in? %>
