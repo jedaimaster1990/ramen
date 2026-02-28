@@ -42,8 +42,11 @@ class PostImagesController < ApplicationController
   end
 
   def destroy
-    @post_image.destroy
-    redirect_to posts_path
+    if @post_image.destroy
+      redirect_to post_images_path, notice: "投稿を削除しました"
+    else
+      redirect_to post_images_path, alert: "削除に失敗しました"
+    end
   end
 
   def edit
