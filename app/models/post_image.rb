@@ -23,7 +23,7 @@ class PostImage < ApplicationRecord
     faovorites_exists?(user_id: user.id)
   end
 
-  def self.search(keyword)
+ def self.search(keyword)
     where('shop_name like ?', "%#{keyword}%").or(
       where('caption like ?', "%#{keyword}%")
     )

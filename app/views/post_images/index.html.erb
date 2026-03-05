@@ -20,7 +20,4 @@
 </div>
 
 <%= render "post_images/post_images", post_images: @post_images, lg: 4 %>
-
-<div class="d-flex justify-content-center">
-  <%= paginate @post_images %>
-</div>
+<%= paginate @post_images %>
